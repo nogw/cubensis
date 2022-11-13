@@ -1,0 +1,132 @@
+# dune build
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Workspace root: /home/nogw/Desktop/code/ocaml/cube
+# Auto-detected concurrency: 8
+$ /home/nogw/.opam/5.0.0+trunk/bin/ocamlc.opt -config > /tmp/dune_34032f_output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/home/nogw/.opam/5.0.0+trunk/lib/toplevel"
+#  ; ocaml_bin = External "/home/nogw/.opam/5.0.0+trunk/bin"
+#  ; ocaml = Ok External "/home/nogw/.opam/5.0.0+trunk/bin/ocaml"
+#  ; ocamlc = External "/home/nogw/.opam/5.0.0+trunk/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/home/nogw/.opam/5.0.0+trunk/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/home/nogw/.opam/5.0.0+trunk/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/home/nogw/.opam/5.0.0+trunk/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "DUNE_OCAML_HARDCODED" :
+#            "/home/nogw/.opam/5.0.0+trunk/lib/ocaml:/home/nogw/.opam/5.0.0+trunk/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/home/nogw/.opam/5.0.0+trunk/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/home/nogw/Desktop/code/ocaml/cube"
+#        ; "INSIDE_DUNE" : "/home/nogw/Desktop/code/ocaml/cube/_build/default"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/home/nogw/Desktop/code/ocaml/cube/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/home/nogw/Desktop/code/ocaml/cube/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/home/nogw/Desktop/code/ocaml/cube/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_paths =
+#      [ External "/home/nogw/.opam/5.0.0+trunk/lib/ocaml"
+#      ; External "/home/nogw/.opam/5.0.0+trunk/lib"
+#      ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "5.0.0+dev8-2022-10-12"
+#      ; standard_library_default = "/home/nogw/.opam/5.0.0+trunk/lib/ocaml"
+#      ; standard_library = "/home/nogw/.opam/5.0.0+trunk/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "gcc"
+#      ; ocamlc_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread"; "-fPIC" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread"; "-fPIC" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; bytecomp_c_compiler =
+#          [ "gcc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-fPIC"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "gcc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-fPIC"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; native_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "linux"
+#      ; asm = [ "as" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-pc-linux-gnu"
+#      ; target = "x86_64-pc-linux-gnu"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X032"
+#      ; cmi_magic_number = "Caml1999I032"
+#      ; cmo_magic_number = "Caml1999O032"
+#      ; cma_magic_number = "Caml1999A032"
+#      ; cmx_magic_number = "Caml1999Y032"
+#      ; cmxa_magic_number = "Caml1999Z032"
+#      ; ast_impl_magic_number = "Caml1999M032"
+#      ; ast_intf_magic_number = "Caml1999N032"
+#      ; cmxs_magic_number = "Caml1999D032"
+#      ; cmt_magic_number = "Caml1999T032"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/.sandbox/8a168863d3dd39d35d65346e6b25139a/default && .ppx/0bb5094b13567c3c4e1ee33245b80e63/ppx.exe --cookie 'library-name="cube"' -o lib/syntax.pp.ml --impl lib/syntax.ml -corrected-suffix .ppx-corrected -diff-cmd - -dump-ast)
+$ (cd _build/default && /home/nogw/.opam/5.0.0+trunk/bin/ocamldep.opt -modules -impl lib/syntax.pp.ml) > _build/default/lib/.cube.objs/syntax.pp.ml.d
+$ (cd _build/default && /home/nogw/.opam/5.0.0+trunk/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.cube.objs/byte -I /home/nogw/.opam/5.0.0+trunk/lib/ocaml/compiler-libs -I /home/nogw/.opam/5.0.0+trunk/lib/ppx_deriving/runtime -I /home/nogw/.opam/5.0.0+trunk/lib/result -no-alias-deps -opaque -open Cube -o lib/.cube.objs/byte/cube__Syntax.cmo -c -impl lib/syntax.pp.ml)
+> File "lib/syntax.ml", lines 3-25, characters 0-41:
+>  3 | type expr = LE of { loc: Location.t; desc: raw_expr }
+>  4 | 
+>  5 | and raw_expr =
+>  6 |   | LE_nat
+>  7 |   | LE_zero
+> ...
+> 22 |   | LE_eqElim of { pred : raw_expr; a : raw_expr; b : raw_expr; c : raw_expr }
+> 23 |   | LE_sumElim of { pred : raw_expr; a : raw_expr; b : raw_expr; c : raw_expr }
+> 24 |   | LE_propEq of { left : raw_expr; right : raw_expr }
+> 25 |   [@@deriving show { with_path = false }]
+> Error: Unbound value Location.pp
+[2]

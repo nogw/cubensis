@@ -1,0 +1,6 @@
+(** @canonical Cube.Name *)
+module Name = Cube__Name
+
+
+(** @canonical Cube.Syntax *)
+module Syntax = Cube__Syntax
