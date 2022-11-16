@@ -11,14 +11,16 @@ and raw_expr =
   | LE_var of { var : Name.t }
   | LE_lambda of { param : Name.t; arg : argument; body : expr }
   | LE_pi of { param : Name.t; anno : expr; arg : argument; body : expr }
+  | LE_sigma of { param : Name.t; anno : expr; body : expr }
   | LE_app of { lambda : expr; arg : expr }
-  | LE_sum of { head : expr; tail : expr }
+  | LE_sum of { left : expr; right : expr }
   | LE_pair of { left : expr; right : expr }
   | LE_fst of { expr : expr }
   | LE_snd of { expr : expr }
   | LE_inl of { expr : expr }
   | LE_inr of { expr : expr }
   | LE_succ of { expr : expr }
+  | LE_meta of { expr : Name.t }
   | LE_refl of { left : expr; right : expr }
   | LE_natElim of { pred : expr; a : expr; b : expr; c : expr }
   | LE_eqElim of { pred : expr; a : expr; b : expr; c : expr }
@@ -46,9 +48,11 @@ let le_var ~loc ~var = pack loc (LE_var { var })
 let le_type ~loc ~var = pack loc (LE_type { var })
 let le_lambda ~loc ~param ~arg ~body = pack loc (LE_lambda { param; arg; body })
 let le_pi ~loc ~param ~anno ~arg ~body = pack loc (LE_pi { param; anno; arg; body })
+let le_sigma ~loc ~param ~anno ~body = pack loc (LE_sigma { param; anno; body })
 let le_app ~loc ~lambda ~arg = pack loc (LE_app { lambda; arg })
-let le_sum ~loc ~head ~tail = pack loc (LE_sum { head; tail })
+let le_sum ~loc ~left ~right = pack loc (LE_sum { left; right })
 let le_pair ~loc ~left ~right = pack loc (LE_pair { left; right })
+let le_meta ~loc ~expr = pack loc (LE_meta { expr })
 let le_fst ~loc ~expr = pack loc (LE_fst { expr })
 let le_snd ~loc ~expr = pack loc (LE_snd { expr })
 let le_inl ~loc ~expr = pack loc (LE_inl { expr })

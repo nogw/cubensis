@@ -5,16 +5,17 @@ let rec free_vars expr =
   let (LE { desc = expr_in; _ }) = expr in
 
   match expr_in with
-  | LE_nat | LE_zero | LE_type _ -> 
+  | LE_nat | LE_zero | LE_type _ | LE_meta _ -> 
     NameSet.empty
   | LE_var { var } -> 
     NameSet.singleton var
   | LE_lambda { param; body; _ } -> 
     NameSet.remove param (free_vars body)
+  | LE_sigma { param; anno; body; _ }
   | LE_pi { param; anno; body; _ } -> 
     NameSet.union (free_vars anno) (NameSet.remove param (free_vars body))
   | LE_app { lambda = left; arg = right }
-  | LE_sum { head = left; tail = right }
+  | LE_sum { left = left; right = right }
   | LE_propEq { left; right }
   | LE_refl { left; right }
   | LE_pair { left; right } -> 

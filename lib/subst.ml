@@ -9,9 +9,10 @@ let rec substitution ~from_ ~to_ ~in_ =
 
   match expr_in with
   | LE_var { var } when var = from_ -> to_
-  | LE_var _ -> in_
-  | LE_type _ -> in_
-  | LE_nat -> in_
+  | LE_var _
+  | LE_type _
+  | LE_meta _
+  | LE_nat
   | LE_zero -> in_
   | LE_lambda { param; _ } when param = from_ -> in_
   | LE_lambda { param; arg; body} when NameSet.mem param (free_vars to_) ->
@@ -33,6 +34,17 @@ let rec substitution ~from_ ~to_ ~in_ =
     let anno = aux anno in
     let body = aux body in
     le_pi ~loc ~param ~anno ~arg ~body
+  | LE_sigma { param; _ } when param = from_ -> in_
+  | LE_sigma { param; anno; body } when NameSet.mem param (free_vars to_) ->
+    let avoid = ((NameSet.singleton from_) <@> (free_vars in_) <@> (free_vars to_)) in
+    let anno  = aux anno in
+    let param = fresh ~avoid ~name:param in
+    let body  = substitution ~from_:param ~to_:(le_var ~loc ~var:param) ~in_:body |> aux in    
+    le_sigma ~loc ~param ~anno ~body
+  | LE_sigma { param; anno; body } -> 
+    let anno = aux anno in
+    let body = aux body in
+    le_sigma ~loc ~param ~anno ~body
   | LE_app { lambda; arg } -> 
     let lambda = aux lambda in
     let arg = aux arg in
@@ -56,10 +68,10 @@ let rec substitution ~from_ ~to_ ~in_ =
   | LE_succ { expr } -> 
     let expr = aux expr in
     le_succ ~loc ~expr
-  | LE_sum { head; tail } -> 
-    let head = aux head in
-    let tail = aux tail in
-    le_sum ~loc ~head ~tail
+  | LE_sum { left; right } -> 
+    let left = aux left in
+    let right = aux right in
+    le_sum ~loc ~left ~right
   | LE_refl { left; right } ->
     let left = aux left in
     let right = aux right in 
